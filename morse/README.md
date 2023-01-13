@@ -37,3 +37,19 @@ This is the resulting code:
 ```
 
 This repository is a recreation by Baptiste as a learning exercise of a similar implementation.
+
+# C version
+This is a drop in replacement for the original C program.
+```c
+int morse_decode(int state, int c)
+{
+    static const unsigned char t[] = "54 3   2       16       7   8 90hvf l pjbxcyzq  surwdkgoianmet";
+    state = state < 0 ? state : -2;
+    switch (c) {
+    case 0x00: return t[state & 63];
+    case 0x2e: return state*2;
+    case 0x2d: return state*2+1;
+    default:   return -2;
+    }
+}
+```
